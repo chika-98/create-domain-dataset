@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 from my_function import control_url, control_domain
 import pandas as pd
 import statistics
+import datetime
 
 def get_base_df(urls):
     df_dict = dict()
@@ -89,3 +90,5 @@ def main(urls):
 if __name__ == "__main__":
     urls =  set([line.strip() for line in sys.stdin])
     df = main(urls)
+    date = datetime.date.today()
+    df.to_csv('dataset/' + date.strftime('%Y%m%d') + '.tsv', sep='\t', index=False)
