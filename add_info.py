@@ -5,6 +5,14 @@ import pandas as pd
 import subprocess
 from subprocess import PIPE
 
+def is_num(s):
+    try:
+        float(s)
+    except ValueError:
+        return False
+    else:
+        return True
+        
 def by_dig(domains):
     # dig domain
     domain_digres = dict()
