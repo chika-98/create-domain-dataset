@@ -28,3 +28,5 @@
 ```
 cat {URLfile} | python3 create-domain-dataset/main.py
 ```
+
+`dataset`下に{%Y%m%d}.tsvというファイルが作成される
