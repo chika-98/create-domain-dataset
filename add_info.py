@@ -43,9 +43,9 @@ def by_dig(domains):
         else:
             dig_info.append([k, ip_num, cache_time/len(v)])
 
-    df = pd.Dataframe(
+    df = pd.DataFrame(
         dig_info, 
-        index=[
+        columns=[
             'domain',
             'ip_num',
             'cache_time']

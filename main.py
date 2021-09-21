@@ -27,22 +27,22 @@ def get_base_df(urls):
                 'ip_address': 0,
                 'localhost': 0
             }
-            df_dict['domain_length'] = len(domain)
-            df_dict['domain_number_character'] = control_domain.parcentage_number_character(domain)
+            df_dict[domain]['domain_length'] = len(domain)
+            df_dict[domain]['domain_number_character'] = control_domain.parcentage_number_character(domain)
             if control_domain.is_ip(domain):
-                df_dict['ip_address'] = 1
+                df_dict[domain]['ip_address'] = 1
             if control_domain.is_localhost(domain):
-                df_dict['localhost'] = 1
+                df_dict[domain]['localhost'] = 1
 
-        df_dict['url_length'].append(len(url))
-        df_dict['url_number_character'].append(control_url.count_number_character(url))
-        df_dict['num_of_paths'].append(control_url.count_path(url))
+        df_dict[domain]['url_length'].append(len(url))
+        df_dict[domain]['url_number_character'].append(control_url.count_number_character(url))
+        df_dict[domain]['num_of_paths'].append(control_url.count_path(url))
         if control_url.is_xls(url):
-            df_dict['xls_url'] = 1
+            df_dict[domain]['xls_url'] = 1
         if control_url.is_doc(url):
-            df_dict['doc_url'] = 1
+            df_dict[domain]['doc_url'] = 1
         if control_url.is_zip(url):
-            df_dict['zip_url'] = 1
+            df_dict[domain]['zip_url'] = 1
     
     df_list = []
     for k, v in df_dict.items():
@@ -59,9 +59,9 @@ def get_base_df(urls):
             v['ip_address'],
             v['localhost']])
     
-    df = pd.Dataframe(
+    df = pd.DataFrame(
         df_list, 
-        index=[
+        columns=[
             'domain', 
             'url_length', 
             'url_number_character', 

@@ -19,7 +19,7 @@ def domain(URL):
 # pathの深さを返す
 def count_path(URL):
     # path部分のみ取り出し
-    path = urlparse(url).path
+    path = urlparse(URL).path
 
     new_path1 = re.sub('^/', '', path)
     new_path2 = re.sub('/$', '', new_path1)
@@ -30,19 +30,19 @@ def count_path(URL):
 # .docで終わるURLか
 def is_doc(URL):
     pattern = re.compile(r'\.doc$')
-    return bool(pattern.search(url)):
+    return bool(pattern.search(URL))
 
 # .xlsで終わるURLか
 def is_xls(URL):
     pattern = re.compile(r'\.xls$')
-    return bool(pattern.search(url)):
+    return bool(pattern.search(URL))
 
 # .zipで終わるURLか
 def is_zip(URL):
     pattern = re.compile(r'\.zip$')
-    return bool(pattern.search(url)):
+    return bool(pattern.search(URL))
 
 def count_number_character(URL):
-    return int(len(re.findall('\d', domain)))
+    return int(len(re.findall('\d', URL)))
 
 

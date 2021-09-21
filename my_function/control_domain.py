@@ -3,6 +3,8 @@
 
 # domain操作用ツール
 
+import re
+
 # IPアドレスか判定（ポート付きもOK）
 # 引数：ドメイン
 def is_ip(domain):
