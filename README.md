@@ -9,8 +9,8 @@
 |---|---|
 |domain| the name of domain(string） |
 |url_length| the mean of URL length|
-|url_number_character| URL内にある数字[0-9]の数の平均|
-|num_of_path| URLのパスの深さの平均|
+|url_number_character| the mean of number of number character in URL|
+|num_of_path| mean of URL path depth|
 |xls_url|URL extension is .xls（y：１、n：０）|
 |doc_url|URL extension is .doc（y：１、n：０）|
 |zip_url|URL extension is .zip（y：１、n：０）|
