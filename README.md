@@ -1,30 +1,45 @@
 # create-domain-dataset
 
-## 概要
-- urlからdomain, url情報を抽出し、データセットに変換するスクリプト
-- digで問い合わせる動作あり
-- 作成されるデータ：
+## discription
+- you can get the domain dataset from urls if you use this scripts.
+- this method has the part that uses dig command.
+- features of the data　created：
 
-| column name | 説明 |
+| feature name | discription |
 |---|---|
-|domain| ドメイン名（文字列） |
-|url_length| URLの長さの平均|
-|url_number_character| URL内にある数字[0-9]の数の平均|
-|num_of_path| URLのパスの深さの平均|
-|xls_url|URLの拡張子で.xlsで終わるものを含むか（含む：１、含まない：０）|
-|doc_url|URLの拡張子で.docで終わるものを含むか（含む：１、含まない：０）|
-|zip_url|URLの拡張子で.zipで終わるものを含むか（含む：１、含まない：０）|
-|domain_length|ドメインの文字数(.を含む)|
-|domain_number_character|ドメインの文字数に対する数字の割合(%)|
-|ip_address|ドメインがipアドレスか(yes:1, no:0)|
-|localhost|ドメインがローカルホストか(yes:1, no:0)|
-|ip_num| 名前解決した時のipアドレスの数|
-|cache_time| キャッシュサーバのcache_timeの平均 |
+|domain| the name of domain(string） |
+|url_length| the mean of URL length|
+|url_number_character| the mean of number of number character in URL|
+|num_of_path| mean of URL path depth|
+|xls_url|URL extension is .xls（y：１、n：０）|
+|doc_url|URL extension is .doc（y：１、n：０）|
+|zip_url|URL extension is .zip（y：１、n：０）|
+|domain_length|the length of domain|
+|domain_number_character|Ratio of numbers to domain length(%)|
+|ip_address|Domain is in the form of an IP address(yes:1, no:0)|
+|localhost|Domain is in the form of localhost(yes:1, no:0)|
+|ip_num| number of ips|
+|cache_time| the mean of cache_time |
 
 ---
 
-## 使い方
+## how to use
+
+you should make directory 'dataset' first.
+```
+mkdir create-domain-dataset/dataset
+```
+
+Run the prepared URLs in a script
 
 ```
 cat {URLfile} | python3 create-domain-dataset/main.py
 ```
+
+or
+
+```
+echo {URL} | python3 create-domain-dataset/main.py
+```
+
+the file {%Y%m%d}.tsv will be created under 'dataset'
