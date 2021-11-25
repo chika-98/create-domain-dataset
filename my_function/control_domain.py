@@ -26,4 +26,6 @@ def is_localhost(domain):
         return(False)    
 
 def parcentage_number_character(domain):
+    if len(domain.replace('.', '')) == 0:
+        return 0
     return int(len(re.findall('\d', domain))*100 /  len(domain.replace('.', '')))
